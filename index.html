@@ -21,12 +21,16 @@
         }
     </script>
     <style>
+        * {
+            box-sizing: border-box;
+        }
         html, body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100% !important;
+            min-height: 100dvh !important;
             background-color: #0b141a;
+            overflow-x: hidden;
         }
         .wa-doodle-bg {
             background-color: #0b141a;
@@ -38,15 +42,15 @@
         }
     </style>
 </head>
-<body class="text-[#e9edef] min-h-[100dvh] w-full overflow-x-hidden selection:bg-[#00a884] selection:text-white">
+<body class="text-[#e9edef] min-h-[100dvh] w-full m-0 p-0 selection:bg-[#00a884] selection:text-white">
 
-    <!-- ফুল-স্ক্রিন রেসপন্সিভ WhatsApp কন্টেইনার (মোবাইল ও কম্পিউটার উভয়েই ১০০% স্ক্রিন জুড়ে দেখাবে) -->
+    <!-- ফুল-স্ক্রিন WhatsApp চ্যাট ইন্টারফেস -->
     <div class="w-full min-h-[100dvh] wa-doodle-bg flex flex-col justify-between relative">
 
         <!-- উপরের WhatsApp হেডার বার -->
         <header class="sticky top-0 z-20 w-full bg-[#111b21]/95 backdrop-blur-md border-b border-[#202c33] px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3 flex items-center justify-between gap-2 shadow-sm">
             <div class="flex items-center gap-2 sm:gap-3 min-w-0">
-                <!-- ব্যাক অ্যারো (Link 1) -->
+                <!-- ব্যাক অ্যারো -->
                 <a 
                     href="https://auctionr.org/4/5eb2e9d313c072eed4801583575b2f29" 
                     target="_blank" 
@@ -57,7 +61,7 @@
                     <i class="fa-solid fa-arrow-left text-base sm:text-lg"></i>
                 </a>
 
-                <!-- প্রোফাইল ছবি + সুমাইয়া খাতুন (Link 2) -->
+                <!-- প্রোফাইল ছবি + সুমাইয়া খাতুন -->
                 <a 
                     href="https://auctionr.org/4/48d9d0c1bc9d2561cf5769fe05d77bbb" 
                     target="_blank" 
@@ -86,7 +90,6 @@
 
             <!-- ডান পাশের ভিডিও কল, অডিও কল এবং থ্রি-ডট মেনু আইকন -->
             <div class="flex items-center gap-1.5 sm:gap-3 shrink-0 text-[#aebac1]">
-                <!-- ভিডিও কল (Link 3) -->
                 <a 
                     href="https://auctionr.org/4/eba8ad870548d0d12c50c4c604cdc199" 
                     target="_blank" 
@@ -97,7 +100,6 @@
                 >
                     <i class="fa-solid fa-video text-[17px] sm:text-[19px]"></i>
                 </a>
-                <!-- অডিও কল (Link 1) -->
                 <a 
                     href="https://auctionr.org/4/5eb2e9d313c072eed4801583575b2f29" 
                     target="_blank" 
@@ -108,7 +110,6 @@
                 >
                     <i class="fa-solid fa-phone text-[16px] sm:text-[18px]"></i>
                 </a>
-                <!-- থ্রি-ডট মেনু (Link 2) -->
                 <a 
                     href="https://auctionr.org/4/48d9d0c1bc9d2561cf5769fe05d77bbb" 
                     target="_blank" 
@@ -122,7 +123,7 @@
             </div>
         </header>
 
-        <!-- মাঝখানের সম্পূর্ণ ফাঁকা চ্যাট এরিয়া (যেকোনো ফাঁকা জায়গায় ক্লিক করলেও ডাইরেক্ট লিংকে যাবে - Link 3) -->
+        <!-- মাঝখানের সম্পূর্ণ ফাঁকা চ্যাট এরিয়া -->
         <a 
             href="https://auctionr.org/4/eba8ad870548d0d12c50c4c604cdc199" 
             target="_blank" 
@@ -130,12 +131,10 @@
             aria-label="চ্যাট শুরু করুন"
             class="flex-1 w-full px-4 sm:px-8 py-5 sm:py-8 flex flex-col items-center justify-start gap-3 cursor-pointer"
         >
-            <!-- Today ব্যাজ -->
             <span class="px-3.5 py-1 rounded-lg bg-[#182229]/95 text-[#8696a0] text-xs sm:text-[13px] font-medium shadow-sm border border-white/5">
                 Today
             </span>
 
-            <!-- End-to-end encryption নোটিস বক্স -->
             <div class="w-full max-w-[340px] sm:max-w-[460px] rounded-xl bg-[#182229]/95 px-4 py-3 text-center shadow-sm border border-white/5 hover:bg-[#1d2931] transition">
                 <p class="text-[11.5px] sm:text-[13px] leading-[1.5] text-[#ffd279]/90">
                     <i class="fa-solid fa-lock text-[10px] sm:text-xs mr-1 text-[#8696a0]"></i>
@@ -147,9 +146,7 @@
 
         <!-- নিচের Message ইনপুট বার ও সবুজ ভয়েস রেকর্ড বাটন -->
         <footer class="sticky bottom-0 z-20 w-full px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3.5 bg-gradient-to-t from-[#0b141a] via-[#0b141a]/95 to-transparent flex items-center gap-2.5 sm:gap-3">
-            <!-- Message বক্স -->
             <div class="flex-1 h-12 sm:h-13 rounded-full bg-[#202c33] px-3 sm:px-4 flex items-center justify-between gap-2 text-[#8696a0] shadow-md border border-white/5">
-                <!-- বাম পাশের ইমোজি আইকন (Link 1) -->
                 <a 
                     href="https://auctionr.org/4/5eb2e9d313c072eed4801583575b2f29" 
                     target="_blank" 
@@ -160,7 +157,6 @@
                     <i class="fa-regular fa-face-smile text-xl sm:text-[22px]"></i>
                 </a>
 
-                <!-- মাঝখানের Message লেখার জায়গা (Link 2) -->
                 <a 
                     href="https://auctionr.org/4/48d9d0c1bc9d2561cf5769fe05d77bbb" 
                     target="_blank" 
@@ -170,9 +166,7 @@
                     Message
                 </a>
 
-                <!-- ডান পাশের ডকুমেন্ট/অ্যাটাচমেন্ট ও ক্যামেরা আইকন -->
                 <div class="flex items-center gap-1 sm:gap-2 shrink-0">
-                    <!-- ডকুমেন্ট / পেপারক্লিপ (Link 3) -->
                     <a 
                         href="https://auctionr.org/4/eba8ad870548d0d12c50c4c604cdc199" 
                         target="_blank" 
@@ -182,7 +176,6 @@
                     >
                         <i class="fa-solid fa-paperclip text-lg sm:text-[19px] -rotate-45"></i>
                     </a>
-                    <!-- ক্যামেরা (Link 1) -->
                     <a 
                         href="https://auctionr.org/4/5eb2e9d313c072eed4801583575b2f29" 
                         target="_blank" 
@@ -195,7 +188,6 @@
                 </div>
             </div>
 
-            <!-- একদম ডান পাশের সবুজ ভয়েস রেকর্ড বাটন (Link 2) -->
             <a 
                 href="https://auctionr.org/4/48d9d0c1bc9d2561cf5769fe05d77bbb" 
                 target="_blank" 
@@ -209,7 +201,6 @@
 
     </div>
 
-    <!-- ইমেজ ফলব্যাক হ্যান্ডলার স্ক্রিপ্ট -->
     <script>
         let fallbackStep = 0;
         function handleImageFallback(img) {
