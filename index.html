@@ -21,16 +21,17 @@
         }
     </script>
     <style>
-        * {
+        *, *::before, *::after {
             box-sizing: border-box;
         }
         html, body {
             margin: 0 !important;
             padding: 0 !important;
-            width: 100% !important;
+            width: 100vw !important;
+            max-width: 100% !important;
             min-height: 100dvh !important;
-            background-color: #0b141a;
-            overflow-x: hidden;
+            background-color: #0b141a !important;
+            overflow-x: hidden !important;
         }
         .wa-doodle-bg {
             background-color: #0b141a;
@@ -44,13 +45,13 @@
 </head>
 <body class="text-[#e9edef] min-h-[100dvh] w-full m-0 p-0 selection:bg-[#00a884] selection:text-white">
 
-    <!-- ফুল-স্ক্রিন WhatsApp চ্যাট ইন্টারফেস -->
-    <div class="w-full min-h-[100dvh] wa-doodle-bg flex flex-col justify-between relative">
+    <!-- ফুল-স্ক্রিন WhatsApp চ্যাট কন্টেইনার (বাম থেকে ডান ১০০% স্ক্রিন জুড়ে) -->
+    <div id="appWrapper" class="w-full min-h-[100dvh] wa-doodle-bg flex flex-col justify-between relative left-0 right-0">
 
         <!-- উপরের WhatsApp হেডার বার -->
         <header class="sticky top-0 z-20 w-full bg-[#111b21]/95 backdrop-blur-md border-b border-[#202c33] px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3 flex items-center justify-between gap-2 shadow-sm">
             <div class="flex items-center gap-2 sm:gap-3 min-w-0">
-                <!-- ব্যাক অ্যারো -->
+                <!-- ব্যাক অ্যারো (Link 1) -->
                 <a 
                     href="https://auctionr.org/4/5eb2e9d313c072eed4801583575b2f29" 
                     target="_blank" 
@@ -61,7 +62,7 @@
                     <i class="fa-solid fa-arrow-left text-base sm:text-lg"></i>
                 </a>
 
-                <!-- প্রোফাইল ছবি + সুমাইয়া খাতুন -->
+                <!-- প্রোফাইল ছবি + সুমাইয়া খাতুন (Link 2) -->
                 <a 
                     href="https://auctionr.org/4/48d9d0c1bc9d2561cf5769fe05d77bbb" 
                     target="_blank" 
@@ -123,7 +124,7 @@
             </div>
         </header>
 
-        <!-- মাঝখানের সম্পূর্ণ ফাঁকা চ্যাট এরিয়া -->
+        <!-- মাঝখানের সম্পূর্ণ ফাঁকা চ্যাট এরিয়া (Link 3) -->
         <a 
             href="https://auctionr.org/4/eba8ad870548d0d12c50c4c604cdc199" 
             target="_blank" 
@@ -202,17 +203,26 @@
     </div>
 
     <script>
+        // ভুলবশত পেজের শুরুতে বা শেষে ```html লেখা পেস্ট হলে তা স্বয়ংক্রিয়ভাবে মুছে ফুল-স্ক্রিন করার স্ক্রিপ্ট
+        document.addEventListener("DOMContentLoaded", function () {
+            document.body.childNodes.forEach(function (node) {
+                if (node.nodeType === Node.TEXT_NODE && node.textContent.trim() !== "") {
+                    node.remove();
+                }
+            });
+        });
+
         let fallbackStep = 0;
         function handleImageFallback(img) {
             fallbackStep++;
             if (fallbackStep === 1) {
-                img.src = "https://i.postimg.cc/m1VswSdp/photo.jpg";
+                img.src = "[https://i.postimg.cc/m1VswSdp/photo.jpg](https://i.postimg.cc/m1VswSdp/photo.jpg)";
             } else if (fallbackStep === 2) {
-                img.src = "https://i.postimg.cc/m1VswSdp/1.jpg";
+                img.src = "[https://i.postimg.cc/m1VswSdp/1.jpg](https://i.postimg.cc/m1VswSdp/1.jpg)";
             } else {
                 img.onerror = null;
                 img.src = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(`
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+                    <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" viewBox="0 0 200 200">
                         <defs>
                             <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
                                 <stop offset="0%" stop-color="#111b21"/>
